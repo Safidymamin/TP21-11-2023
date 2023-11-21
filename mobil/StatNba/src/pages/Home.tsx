@@ -1,6 +1,7 @@
 import MessageListItem from '../components/MessageListItem';
 import { useState } from 'react';
 import { Message, getMessages } from '../data/messages';
+import { Equipe,getEquipes } from '../data/Equipe';
 import {
   IonContent,
   IonHeader,
@@ -17,10 +18,16 @@ import './Home.css';
 const Home: React.FC = () => {
 
   const [messages, setMessages] = useState<Message[]>([]);
+  const [equipes, setEquipes] = useState<Equipe[]>([]);
 
   useIonViewWillEnter(() => {
     const msgs = getMessages();
     setMessages(msgs);
+  });
+  
+  useIonViewWillEnter(() => {
+    const msgs = getEquipes();
+    setEquipes(msgs);
   });
 
   const refresh = (e: CustomEvent) => {
@@ -33,7 +40,7 @@ const Home: React.FC = () => {
     <IonPage id="home-page">
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Inbox</IonTitle>
+          <IonTitle>Liste Equipe</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
