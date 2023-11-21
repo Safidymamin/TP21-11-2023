@@ -18,17 +18,13 @@ import './Home.css';
 const Home: React.FC = () => {
 
   const [messages, setMessages] = useState<Message[]>([]);
-  const [equipes, setEquipes] = useState<Equipe[]>([]);
+
 
   useIonViewWillEnter(() => {
     const msgs = getMessages();
     setMessages(msgs);
   });
   
-  useIonViewWillEnter(() => {
-    const msgs = getEquipes();
-    setEquipes(msgs);
-  });
 
   const refresh = (e: CustomEvent) => {
     setTimeout(() => {
