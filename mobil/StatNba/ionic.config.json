@@ -1,5 +1,5 @@
 {
-  "name": "nba",
+  "name": "StatNba",
   "integrations": {
     "capacitor": {}
   },
